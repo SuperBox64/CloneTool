@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA00000000000000000050 /* CloneToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000003A /* CloneToolApp.swift */; };
+		AA00000000000000000051 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000003B /* ContentView.swift */; };
+		AA00000000000000000052 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000003C /* Models.swift */; };
+		AA00000000000000000053 /* CloneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000003D /* CloneViewModel.swift */; };
+		AA00000000000000000054 /* DiskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000003E /* DiskService.swift */; };
+		AA00000000000000000055 /* DDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000003F /* DDService.swift */; };
+		AA00000000000000000056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000040 /* Assets.xcassets */; };
+		AA00000000000000000057 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000043 /* HelperProtocol.swift */; };
+		BB00000000000000000010 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000001 /* main.swift */; };
+		BB00000000000000000011 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000000000000000002 /* HelperProtocol.swift */; };
+		BB00000000000000000012 /* com.clonetool.helper.plist in Copy Daemon Plist */ = {isa = PBXBuildFile; fileRef = AA00000000000000000044 /* com.clonetool.helper.plist */; };
+		BB00000000000000000013 /* CloneToolHelper in Copy Helper */ = {isa = PBXBuildFile; fileRef = BB00000000000000000003 /* CloneToolHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EAF3666D2F610EE0004B7E38 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EAF3666C2F610EE0004B7E38 /* AppIcon.icon */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB00000000000000000030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA0000000000000000001A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB00000000000000000070;
+			remoteInfo = CloneToolHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB00000000000000000020 /* Copy Helper */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				BB00000000000000000013 /* CloneToolHelper in Copy Helper */,
+			);
+			name = "Copy Helper";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB00000000000000000021 /* Copy Daemon Plist */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchDaemons;
+			dstSubfolderSpec = 1;
+			files = (
+				BB00000000000000000012 /* com.clonetool.helper.plist in Copy Daemon Plist */,
+			);
+			name = "Copy Daemon Plist";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AA0000000000000000003A /* CloneToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloneToolApp.swift; sourceTree = "<group>"; };
+		AA0000000000000000003B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0000000000000000003C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		AA0000000000000000003D /* CloneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloneViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000003E /* DiskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskService.swift; sourceTree = "<group>"; };
+		AA0000000000000000003F /* DDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDService.swift; sourceTree = "<group>"; };
+		AA00000000000000000040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA00000000000000000041 /* CloneTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloneTool.entitlements; sourceTree = "<group>"; };
+		AA00000000000000000042 /* CloneTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloneTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00000000000000000043 /* HelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
+		AA00000000000000000044 /* com.clonetool.helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.clonetool.helper.plist; sourceTree = "<group>"; };
+		BB00000000000000000001 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BB00000000000000000002 /* HelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
+		BB00000000000000000003 /* CloneToolHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CloneToolHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF3666C2F610EE0004B7E38 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA00000000000000000062 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB00000000000000000062 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000002A = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002B /* CloneTool */,
+				BB0000000000000000002B /* CloneToolHelper */,
+				AA0000000000000000002C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA0000000000000000002B /* CloneTool */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000003A /* CloneToolApp.swift */,
+				AA0000000000000000003B /* ContentView.swift */,
+				AA0000000000000000003C /* Models.swift */,
+				AA0000000000000000003D /* CloneViewModel.swift */,
+				AA0000000000000000003E /* DiskService.swift */,
+				AA0000000000000000003F /* DDService.swift */,
+				AA00000000000000000043 /* HelperProtocol.swift */,
+				AA00000000000000000040 /* Assets.xcassets */,
+				AA00000000000000000041 /* CloneTool.entitlements */,
+				EAF3666C2F610EE0004B7E38 /* AppIcon.icon */,
+				BB0000000000000000002D /* LaunchDaemons */,
+			);
+			path = CloneTool;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000002C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000042 /* CloneTool.app */,
+				BB00000000000000000003 /* CloneToolHelper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB0000000000000000002B /* CloneToolHelper */ = {
+			isa = PBXGroup;
+			children = (
+				BB00000000000000000001 /* main.swift */,
+				BB00000000000000000002 /* HelperProtocol.swift */,
+			);
+			path = CloneToolHelper;
+			sourceTree = "<group>";
+		};
+		BB0000000000000000002D /* LaunchDaemons */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000044 /* com.clonetool.helper.plist */,
+			);
+			path = LaunchDaemons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA00000000000000000070 /* CloneTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA00000000000000000091 /* Build configuration list for PBXNativeTarget "CloneTool" */;
+			buildPhases = (
+				AA00000000000000000060 /* Sources */,
+				AA00000000000000000061 /* Resources */,
+				AA00000000000000000062 /* Frameworks */,
+				BB00000000000000000020 /* Copy Helper */,
+				BB00000000000000000021 /* Copy Daemon Plist */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB00000000000000000031 /* PBXTargetDependency */,
+			);
+			name = CloneTool;
+			productName = CloneTool;
+			productReference = AA00000000000000000042 /* CloneTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB00000000000000000070 /* CloneToolHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB00000000000000000091 /* Build configuration list for PBXNativeTarget "CloneToolHelper" */;
+			buildPhases = (
+				BB00000000000000000060 /* Sources */,
+				BB00000000000000000062 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloneToolHelper;
+			productName = CloneToolHelper;
+			productReference = BB00000000000000000003 /* CloneToolHelper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA0000000000000000001A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 2600;
+			};
+			buildConfigurationList = AA00000000000000000090 /* Build configuration list for PBXProject "CloneTool" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000002A;
+			productRefGroup = AA0000000000000000002C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA00000000000000000070 /* CloneTool */,
+				BB00000000000000000070 /* CloneToolHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA00000000000000000061 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA00000000000000000056 /* Assets.xcassets in Resources */,
+				EAF3666D2F610EE0004B7E38 /* AppIcon.icon in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA00000000000000000060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA00000000000000000050 /* CloneToolApp.swift in Sources */,
+				AA00000000000000000051 /* ContentView.swift in Sources */,
+				AA00000000000000000052 /* Models.swift in Sources */,
+				AA00000000000000000053 /* CloneViewModel.swift in Sources */,
+				AA00000000000000000054 /* DiskService.swift in Sources */,
+				AA00000000000000000055 /* DDService.swift in Sources */,
+				AA00000000000000000057 /* HelperProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB00000000000000000060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB00000000000000000010 /* main.swift in Sources */,
+				BB00000000000000000011 /* HelperProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB00000000000000000031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB00000000000000000070 /* CloneToolHelper */;
+			targetProxy = BB00000000000000000030 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AA00000000000000000080 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 469UCUB275;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		AA00000000000000000081 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 469UCUB275;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		AA00000000000000000082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CloneTool/CloneTool.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CloneTool;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clonetool.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		AA00000000000000000083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CloneTool/CloneTool.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CloneTool;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clonetool.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		BB00000000000000000082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clonetool.helper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		BB00000000000000000083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clonetool.helper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA00000000000000000090 /* Build configuration list for PBXProject "CloneTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000080 /* Debug */,
+				AA00000000000000000081 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA00000000000000000091 /* Build configuration list for PBXNativeTarget "CloneTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000082 /* Debug */,
+				AA00000000000000000083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB00000000000000000091 /* Build configuration list for PBXNativeTarget "CloneToolHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB00000000000000000082 /* Debug */,
+				BB00000000000000000083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA0000000000000000001A /* Project object */;
+}
