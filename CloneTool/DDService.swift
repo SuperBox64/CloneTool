@@ -33,6 +33,7 @@ final class DDService {
     var statusLog: String = ""
     var totalSize: UInt64 = 0
     var timeRemaining: String = ""
+    var operationSucceeded = false
     private var startTime: Date?
 
     nonisolated static let helperID = "com.clonetool.helper"
@@ -137,7 +138,7 @@ final class DDService {
             dd if=\(source.rawDevicePath) of='\(destinationPath)' bs=16m status=progress
             """
         }
-        await runOperation(totalSize: source.sizeBytes, script: script)
+        await runOperation(totalSize: source.sizeBytes, script: script, outputPath: destinationPath)
     }
 
     // MARK: - Image to Disk
@@ -214,12 +215,13 @@ final class DDService {
 
     // MARK: - Private
 
-    private func runOperation(totalSize: UInt64, script: String) async {
+    private func runOperation(totalSize: UInt64, script: String, outputPath: String? = nil) async {
         isRunning = true
         progress = 0
         bytesTransferred = 0
         speed = ""
         timeRemaining = ""
+        operationSucceeded = false
         self.totalSize = totalSize
         statusLog = ""
         startTime = Date()
@@ -254,6 +256,7 @@ final class DDService {
 
         if result.status == 0 {
             progress = 1.0
+            bytesTransferred = totalSize
             timeRemaining = ""
             if let startTime = startTime {
                 let elapsed = Date().timeIntervalSince(startTime)
@@ -261,9 +264,17 @@ final class DDService {
             } else {
                 appendLog("Operation completed successfully.")
             }
+            if let outputPath = outputPath {
+                let fileSize = (try? FileManager.default.attributesOfItem(atPath: outputPath)[.size] as? UInt64) ?? 0
+                if fileSize > 0 {
+                    let sizeStr = ByteCountFormatter.string(fromByteCount: Int64(fileSize), countStyle: .file)
+                    appendLog("Image size: \(sizeStr)")
+                }
+            }
             if !result.output.isEmpty {
                 appendLog(result.output)
             }
+            operationSucceeded = true
         } else if result.status == -1 {
             appendLog(result.output)
         } else {
