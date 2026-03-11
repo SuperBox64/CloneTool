@@ -70,6 +70,7 @@ struct ContentView: View {
                         )
                         Text("\(transferred) / \(total)")
                             .font(.system(.body, design: .monospaced))
+                            .foregroundStyle(.secondary)
                     }
                 }
             }
