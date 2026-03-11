@@ -54,7 +54,7 @@ final class CloneViewModel {
         if imageVersion.isEmpty {
             return "\(imageName).img.gz"
         }
-        return "\(imageName)_v\(imageVersion).img.gz"
+        return "\(imageName)_v\(imageVersion.trimmingCharacters(in: .whitespaces)).img.gz"
     }
 
     var canStart: Bool {

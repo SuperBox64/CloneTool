@@ -20,6 +20,7 @@
 		BB00000000000000000012 /* com.clonetool.helper.plist in Copy Daemon Plist */ = {isa = PBXBuildFile; fileRef = AA00000000000000000044 /* com.clonetool.helper.plist */; };
 		BB00000000000000000013 /* CloneToolHelper in Copy Helper */ = {isa = PBXBuildFile; fileRef = BB00000000000000000003 /* CloneToolHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EAF3666D2F610EE0004B7E38 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EAF3666C2F610EE0004B7E38 /* AppIcon.icon */; };
+		CC00000000000000000001 /* pigz in Copy Pigz */ = {isa = PBXBuildFile; fileRef = CC00000000000000000002 /* pigz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,17 @@
 			name = "Copy Daemon Plist";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC00000000000000000005 /* Copy Pigz */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				CC00000000000000000001 /* pigz in Copy Pigz */,
+			);
+			name = "Copy Pigz";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +85,8 @@
 		BB00000000000000000002 /* HelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
 		BB00000000000000000003 /* CloneToolHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CloneToolHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF3666C2F610EE0004B7E38 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		CC00000000000000000002 /* pigz */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pigz; sourceTree = "<group>"; };
+		CC00000000000000000003 /* Binaries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Binaries; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +129,7 @@
 				AA00000000000000000040 /* Assets.xcassets */,
 				AA00000000000000000041 /* CloneTool.entitlements */,
 				EAF3666C2F610EE0004B7E38 /* AppIcon.icon */,
+				CC00000000000000000004 /* Binaries */,
 				BB0000000000000000002D /* LaunchDaemons */,
 			);
 			path = CloneTool;
@@ -146,6 +161,14 @@
 			path = LaunchDaemons;
 			sourceTree = "<group>";
 		};
+		CC00000000000000000004 /* Binaries */ = {
+			isa = PBXGroup;
+			children = (
+				CC00000000000000000002 /* pigz */,
+			);
+			path = Binaries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +181,7 @@
 				AA00000000000000000062 /* Frameworks */,
 				BB00000000000000000020 /* Copy Helper */,
 				BB00000000000000000021 /* Copy Daemon Plist */,
+				CC00000000000000000005 /* Copy Pigz */,
 			);
 			buildRules = (
 			);

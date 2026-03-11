@@ -34,6 +34,7 @@ final class DDService {
     var totalSize: UInt64 = 0
 
     nonisolated static let helperID = "com.clonetool.helper"
+    nonisolated static let pigzPath = Bundle.main.path(forAuxiliaryExecutable: "pigz") ?? "pigz"
     nonisolated let instanceID = UUID().uuidString
 
     nonisolated init() {
@@ -61,40 +62,41 @@ final class DDService {
     func registerHelper() {
         let service = SMAppService.daemon(plistName: "com.clonetool.helper.plist")
 
-        switch service.status {
-        case .enabled:
-            // Force re-register so the system picks up the latest helper binary
-            do {
-                try service.unregister()
-            } catch {
-                appendLog("Unregister warning: \(error.localizedDescription)")
-            }
-        case .requiresApproval:
+        if service.status == .notFound {
+            appendLog("Helper daemon not found in app bundle.")
+            return
+        }
+
+        if service.status == .requiresApproval {
             appendLog("Helper needs approval in System Settings > Login Items.")
             SMAppService.openSystemSettingsLoginItems()
             return
-        case .notRegistered:
-            break
-        case .notFound:
-            appendLog("Helper daemon not found in app bundle.")
-            return
-        @unknown default:
-            appendLog("Unknown helper status: \(service.status)")
         }
 
+        // Always try to register (updates binary if already enabled)
         appendLog("Registering helper daemon...")
         do {
             try service.register()
             appendLog("Helper daemon is active.")
-            if service.status == .requiresApproval {
-                appendLog("Please approve CloneTool in System Settings > Login Items.")
-                SMAppService.openSystemSettingsLoginItems()
-            }
         } catch {
-            appendLog("Registration failed: \(error.localizedDescription)")
-            if service.status == .requiresApproval {
-                SMAppService.openSystemSettingsLoginItems()
+            // If register fails because already enabled, try unregister then re-register
+            if service.status == .enabled {
+                appendLog("Updating helper daemon...")
+                try? service.unregister()
+                do {
+                    try service.register()
+                    appendLog("Helper daemon is active.")
+                } catch {
+                    appendLog("Helper update failed: \(error.localizedDescription)")
+                }
+            } else {
+                appendLog("Registration failed: \(error.localizedDescription)")
             }
+        }
+
+        if service.status == .requiresApproval {
+            appendLog("Please approve CloneTool in System Settings > Login Items.")
+            SMAppService.openSystemSettingsLoginItems()
         }
     }
 
@@ -124,13 +126,13 @@ final class DDService {
             script = """
             #!/bin/bash
             diskutil unmountDisk \(source.devicePath) > /dev/null 2>&1
-            dd if=\(source.rawDevicePath) bs=4m status=progress | gzip > '\(destinationPath)'
+            dd if=\(source.rawDevicePath) bs=16m status=progress | '\(DDService.pigzPath)' > '\(destinationPath)'
             """
         } else {
             script = """
             #!/bin/bash
             diskutil unmountDisk \(source.devicePath) > /dev/null 2>&1
-            dd if=\(source.rawDevicePath) of='\(destinationPath)' bs=4m status=progress
+            dd if=\(source.rawDevicePath) of='\(destinationPath)' bs=16m status=progress
             """
         }
         await runOperation(totalSize: source.sizeBytes, script: script)
@@ -145,13 +147,13 @@ final class DDService {
             script = """
             #!/bin/bash
             diskutil unmountDisk \(target.devicePath) > /dev/null 2>&1
-            gunzip -c '\(sourcePath)' | dd of=\(target.rawDevicePath) bs=4m status=progress
+            '\(DDService.pigzPath)' -d -c '\(sourcePath)' | dd of=\(target.rawDevicePath) bs=16m status=progress
             """
         } else {
             script = """
             #!/bin/bash
             diskutil unmountDisk \(target.devicePath) > /dev/null 2>&1
-            dd if='\(sourcePath)' of=\(target.rawDevicePath) bs=4m status=progress
+            dd if='\(sourcePath)' of=\(target.rawDevicePath) bs=16m status=progress
             """
         }
         await runOperation(totalSize: target.sizeBytes, script: script)
@@ -163,7 +165,7 @@ final class DDService {
         let script = """
         #!/bin/bash
         diskutil unmountDisk \(target.devicePath) > /dev/null 2>&1
-        dd if=\(source.rawDevicePath) of=\(target.rawDevicePath) bs=4m status=progress
+        dd if=\(source.rawDevicePath) of=\(target.rawDevicePath) bs=16m status=progress
         """
         await runOperation(totalSize: source.sizeBytes, script: script)
     }

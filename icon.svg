@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="cardBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4A90D9"/>
+      <stop offset="50%" stop-color="#2E6AB8"/>
+      <stop offset="100%" stop-color="#1A4F8B"/>
+    </linearGradient>
+    <linearGradient id="cardShine" x1="0" y1="0" x2="0.3" y2="0.3">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.3)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+    <linearGradient id="notch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3B7ACC"/>
+      <stop offset="100%" stop-color="#1A4F8B"/>
+    </linearGradient>
+    <linearGradient id="contacts" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0D060"/>
+      <stop offset="50%" stop-color="#D4A830"/>
+      <stop offset="100%" stop-color="#B8901A"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="4" dy="8" stdDeviation="16" flood-color="rgba(0,0,0,0.4)"/>
+    </filter>
+    <filter id="innerShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset dx="2" dy="2" result="offset"/>
+      <feComposite in="SourceGraphic" in2="offset" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- SD Card body with notched corner -->
+  <path d="M 192 80 L 680 80 Q 700 80 700 100 L 700 120 L 832 260 L 832 904 Q 832 944 792 944 L 232 944 Q 192 944 192 904 Z"
+        fill="url(#cardBody)" filter="url(#shadow)" stroke="#163D6E" stroke-width="4"/>
+
+  <!-- Notched top-right corner -->
+  <path d="M 700 80 L 700 220 Q 700 260 740 260 L 832 260"
+        fill="none" stroke="#163D6E" stroke-width="4"/>
+  <path d="M 700 100 L 700 220 Q 700 250 730 250 L 822 250 Z"
+        fill="url(#notch)" opacity="0.5"/>
+
+  <!-- Shine overlay -->
+  <path d="M 192 80 L 680 80 Q 700 80 700 100 L 700 120 L 832 260 L 832 904 Q 832 944 792 944 L 232 944 Q 192 944 192 904 Z"
+        fill="url(#cardShine)"/>
+
+  <!-- Gold contact pads at bottom -->
+  <rect x="280" y="760" width="60" height="120" rx="4" fill="url(#contacts)"/>
+  <rect x="360" y="760" width="60" height="120" rx="4" fill="url(#contacts)"/>
+  <rect x="440" y="760" width="60" height="120" rx="4" fill="url(#contacts)"/>
+  <rect x="520" y="760" width="60" height="120" rx="4" fill="url(#contacts)"/>
+  <rect x="600" y="760" width="60" height="120" rx="4" fill="url(#contacts)"/>
+  <rect x="680" y="760" width="60" height="120" rx="4" fill="url(#contacts)"/>
+
+  <!-- Lock switch notch on left side -->
+  <rect x="180" y="200" width="24" height="100" rx="6" fill="#1A4F8B" stroke="#163D6E" stroke-width="2"/>
+
+  <!-- "CT" text -->
+  <text x="512" y="560" text-anchor="middle" dominant-baseline="central"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="900"
+        font-size="320" fill="white" letter-spacing="-10"
+        stroke="rgba(0,0,0,0.2)" stroke-width="4">CT</text>
+
+  <!-- Subtle text shadow -->
+  <text x="515" y="564" text-anchor="middle" dominant-baseline="central"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="900"
+        font-size="320" fill="rgba(0,0,0,0.15)" letter-spacing="-10">CT</text>
+</svg>

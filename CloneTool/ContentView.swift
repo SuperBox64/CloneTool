@@ -102,7 +102,8 @@ struct ContentView: View {
             }
         }
         .padding(20)
-        .frame(width: 620, height: 520)
+        .padding(.bottom, 10)
+        .frame(width: 620, height: 540)
         .task {
             viewModel.ddService.registerHelper()
             await viewModel.refreshDisks()

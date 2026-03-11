@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebSearch",
+      "WebFetch(domain:theevilbit.github.io)",
+      "WebFetch(domain:dev.to)",
+      "Bash(xcodebuild:*)",
+      "Bash(git:*)",
+      "Bash(open:*)",
+      "mcp__xcf-server__build_project",
+      "WebFetch(domain:www.woodys-findings.com)",
+      "WebFetch(domain:forums.swift.org)",
+      "Bash(which brew:*)",
+      "Bash(brew install:*)",
+      "WebFetch(domain:useyourloaf.com)",
+      "WebFetch(domain:www.createwithswift.com)",
+      "WebFetch(domain:www.virtualsanity.com)",
+      "Bash(mdfind -name .icon)",
+      "Bash(grep \"\\\\.icon$\")",
+      "Bash(sudo kill:*)",
+      "Bash(launchctl print:*)",
+      "Read(//Users/toddbruss/Library/Developer/Xcode/DerivedData/CloneTool-gqhitdavvygovoemnofburuwqdlu/Build/Products/Debug/CloneTool.app/Contents/MacOS/**)",
+      "Bash(file /tmp/pigz-build/pigz && lipo -info /tmp/pigz-build/pigz)",
+      "Bash(codesign --force --sign - /Users/toddbruss/CloneTool/CloneTool/Binaries/pigz 2>&1)",
+      "Bash(sudo launchctl:*)",
+      "Bash(rsync -av --exclude='.git' --exclude='.DS_Store' /Users/toddbruss/CloneTool/ /Users/toddbruss/Documents/Github/CloneTool/ 2>&1)"
+    ]
+  }
+}
