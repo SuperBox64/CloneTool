@@ -49,6 +49,11 @@ struct ContentView: View {
                 HStack {
                     Text(String(format: "%.2f%%", viewModel.ddService.progress * 100))
                         .font(.system(.body, design: .monospaced))
+                    if !viewModel.ddService.timeRemaining.isEmpty {
+                        Text("ETA: \(viewModel.ddService.timeRemaining)")
+                            .font(.system(.body, design: .monospaced))
+                            .foregroundStyle(.secondary)
+                    }
                     Spacer()
                     if !viewModel.ddService.speed.isEmpty {
                         Text(viewModel.ddService.speed)

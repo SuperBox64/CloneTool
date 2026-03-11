@@ -32,6 +32,8 @@ final class DDService {
     var speed: String = ""
     var statusLog: String = ""
     var totalSize: UInt64 = 0
+    var timeRemaining: String = ""
+    private var startTime: Date?
 
     nonisolated static let helperID = "com.clonetool.helper"
     nonisolated static let pigzPath = Bundle.main.path(forAuxiliaryExecutable: "pigz") ?? "pigz"
@@ -217,8 +219,10 @@ final class DDService {
         progress = 0
         bytesTransferred = 0
         speed = ""
+        timeRemaining = ""
         self.totalSize = totalSize
         statusLog = ""
+        startTime = Date()
 
         appendLog("Starting operation...")
         appendLog("Total size: \(ByteCountFormatter.string(fromByteCount: Int64(totalSize), countStyle: .file))")
@@ -235,6 +239,14 @@ final class DDService {
                 if !speedStr.isEmpty {
                     self.speed = speedStr
                 }
+                if let startTime = self.startTime, self.progress > 0.01 {
+                    let elapsed = Date().timeIntervalSince(startTime)
+                    let estimatedTotal = elapsed / self.progress
+                    let remaining = estimatedTotal - elapsed
+                    if remaining > 0 {
+                        self.timeRemaining = self.formatDuration(remaining)
+                    }
+                }
             }
         }
 
@@ -242,7 +254,13 @@ final class DDService {
 
         if result.status == 0 {
             progress = 1.0
-            appendLog("Operation completed successfully.")
+            timeRemaining = ""
+            if let startTime = startTime {
+                let elapsed = Date().timeIntervalSince(startTime)
+                appendLog("Operation completed successfully. Elapsed: \(formatDuration(elapsed))")
+            } else {
+                appendLog("Operation completed successfully.")
+            }
             if !result.output.isEmpty {
                 appendLog(result.output)
             }
@@ -253,6 +271,20 @@ final class DDService {
         }
 
         isRunning = false
+    }
+
+    private func formatDuration(_ seconds: TimeInterval) -> String {
+        let totalSeconds = Int(seconds)
+        let hours = totalSeconds / 3600
+        let minutes = (totalSeconds % 3600) / 60
+        let secs = totalSeconds % 60
+        if hours > 0 {
+            return String(format: "%dh %02dm %02ds", hours, minutes, secs)
+        } else if minutes > 0 {
+            return String(format: "%dm %02ds", minutes, secs)
+        } else {
+            return String(format: "%ds", secs)
+        }
     }
 
     private func appendLog(_ message: String) {
