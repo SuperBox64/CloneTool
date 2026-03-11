@@ -300,7 +300,7 @@ final class DDService {
 
     private func appendLog(_ message: String) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
+        formatter.dateFormat = "h:mm:ss a"
         let timestamp = formatter.string(from: Date())
         statusLog += "[\(timestamp)] \(message)\n"
     }
