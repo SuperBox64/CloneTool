@@ -5,4 +5,5 @@
 
 • Approve the launch daemon and you are good to go. For security logic is in the daemon itself.
 
-<img width="667" height="656" alt="image" src="https://github.com/user-attachments/assets/caf71fa7-2df8-4ecc-98c6-1ddbb7bdda33" />
+<img width="674" height="646" alt="image" src="https://github.com/user-attachments/assets/4116a4e6-74fc-4add-8c03-49d4508e694b" />
+
